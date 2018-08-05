@@ -6,22 +6,28 @@
     <format>tar.gz</format>
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
-  <moduleSets>
-    <moduleSet>
 
-      <!-- Enable access to all projects in the current multimodule build! -->
-      <useAllReactorProjects>true</useAllReactorProjects>
-
-      <!-- Now, select which projects to include in this module-set. -->
+  <!-- dependency set, used if not inside the multi module project -->
+  <dependencySets>
+    <dependencySet>
       <includes>
         <include>com.github.marschall:truststore:pkcs12</include>
       </includes>
-      <!-- 
+      <outputDirectory>/dependencySet</outputDirectory>
+    </dependencySet>
+  </dependencySets>
+  
+  <!-- module set, preferred if inside the multi module project -->
+  <moduleSets>
+    <moduleSet>
+      <useAllReactorProjects>true</useAllReactorProjects>
+      <includes>
+        <include>com.github.marschall:truststore</include>
+      </includes>
       <binaries>
-        <outputDirectory>modules/maven-assembly-plugin</outputDirectory>
+        <outputDirectory>/moduleSet</outputDirectory>
         <unpack>false</unpack>
       </binaries>
-       -->
     </moduleSet>
   </moduleSets>
 </assembly>
