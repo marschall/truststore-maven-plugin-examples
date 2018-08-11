@@ -10,6 +10,7 @@
   <modules>
     <module>truststore</module>
     <module>assembly</module>
+    <module>truststore-with-source</module>
   </modules>
 
   <properties>
